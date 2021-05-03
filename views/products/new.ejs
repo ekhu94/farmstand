@@ -6,12 +6,18 @@
             <div class="mb-3">
                 <label for="name" class="form-label">Product Name</label>
                 <input type="text" id="name" name="product[name]" class="form-control" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
                 <div class="input-group">
                     <span class="input-group-text">&yen;</span>
                     <input type="number" id="price" name="product[price]" class="form-control" aria-label="price" aria-describedby="price" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
                 </div>
             </div>
             <div class="mb-3">
@@ -21,6 +27,9 @@
                     <option value="vegetable">Vegetable</option>
                     <option value="dairy">Dairy</option>
                 </select>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
             </div>
             <button type="submit" class="btn btn-success">Create Product</button>
         </form>

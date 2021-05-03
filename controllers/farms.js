@@ -28,3 +28,19 @@ module.exports.createFarm = async (req, res, next) => {
   await farm.save();
   res.redirect(`/farms/${farm._id}`);
 };
+
+module.exports.editFarm = async (req, res, next) => {
+  const farm = await Farm.findById(req.params.id);
+  res.render('farms/edit', { farm, title: 'Edit Farm' });
+};
+
+module.exports.updateFarm = async (req, res, next) => {
+  const { id } = req.params;
+  const farm = await Farm.findByIdAndUpdate(id, { ...req.body.farm });
+  res.redirect(`/farms/${farm._id}`);
+};
+
+module.exports.deleteFarm = async (req, res, next) => {
+  await Farm.findByIdAndDelete(req.params.id);
+  res.redirect('/farms');
+};
