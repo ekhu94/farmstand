@@ -13,6 +13,8 @@ const capitalizeCategory = (cat) => {
   return cat[0].toUpperCase() + cat.slice(1);
 };
 
+const categories = ['fruit', 'vegetable', 'dairy'];
+
 module.exports.getProducts = async (req, res, next) => {
   const { category } = req.query;
   if (category) {
@@ -49,7 +51,12 @@ module.exports.createProduct = async (req, res, next) => {
 
 module.exports.editProduct = async (req, res, next) => {
   const product = await Product.findById(req.params.id);
-  res.render('products/edit', { product, title: 'Edit Product' });
+  res.render('products/edit', {
+    product,
+    categories,
+    capitalizeCategory,
+    title: 'Edit Product',
+  });
 };
 
 module.exports.updateProduct = async (req, res, next) => {
