@@ -9,9 +9,27 @@ mongoose.connect('mongodb://localhost:27017/farmStand2', {
   useFindAndModify: false,
 });
 
+const capitalizeCategory = (cat) => {
+  return cat[0].toUpperCase() + cat.slice(1);
+};
+
 module.exports.getProducts = async (req, res, next) => {
-  const products = await Product.find({});
-  res.render('products/index', { products, title: 'All Products' });
+  const { category } = req.query;
+  if (category) {
+    const products = await Product.find({ category });
+    res.render('products/index', {
+      products,
+      category: capitalizeCategory(category),
+      title: capitalizeCategory(category),
+    });
+  } else {
+    const products = await Product.find({});
+    res.render('products/index', {
+      products,
+      category: 'all',
+      title: 'Products',
+    });
+  }
 };
 
 module.exports.getProductShow = async (req, res, next) => {

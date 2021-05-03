@@ -2,8 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const ejsMate = require('ejs-mate');
+const methodOverride = require('method-override');
 
 const farmRoutes = require('./routes/farms');
+const productRoutes = require('./routes/products');
 
 const app = express();
 
@@ -26,8 +28,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/farms', farmRoutes);
+app.use('/products', productRoutes);
 
 app.listen(3000, () => {
   console.log('Server listening on Port 3000');
