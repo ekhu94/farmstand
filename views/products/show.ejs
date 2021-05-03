@@ -6,4 +6,6 @@
 </ul>
 <a href="/products">Back</a>
 <a href="/products/<%= product._id %>/edit">Edit Product</a>
-<form action="/products/<%= product._id %>?_method=DELETE" method="POST"></form>
+<form action="/products/<%= product._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete</button>
+</form>
