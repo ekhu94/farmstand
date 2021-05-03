@@ -14,6 +14,7 @@ const farmSchema = new Schema({
     type: String,
     required: [true, 'Email required.'],
   },
+  products: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
 });
 
 module.exports = mongoose.model('Farm', farmSchema);
