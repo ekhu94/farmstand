@@ -1,0 +1,8 @@
+<% layout('layouts/boilerplate') %>
+<h1>All Farms</h1> 
+<a href="/farms/new" class="mb-3">Create New Farm</a>
+<ul>
+    <% for (let farm of farms) { %>
+        <li><a href="/farms/<%= farm._id %>"><%= farm.name %></a></li>
+    <% } %> 
+</ul>

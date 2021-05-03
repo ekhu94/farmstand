@@ -1,0 +1,32 @@
+<% layout('layouts/boilerplate') %> 
+<div class="row">
+    <div class="col-6 offset-3">
+        <h1>New Farm</h1>
+        <form action="/farms" method="POST" class="validated-form" novalidate>
+            <div class="mb-3">
+                <label class="form-label" for="name">Farm Name</label>
+                <input type="text" id="name" name="farm[name]" class="form-control" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="city">City</label>
+                <input type="text" id="city" name="farm[city]" class="form-control" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="email">Email Address</label>
+                <input type="email" id="email" name="farm[email]" class="form-control" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success">Create Farm</button>
+            </div>
+        </form>
+    </div>
+</div>
