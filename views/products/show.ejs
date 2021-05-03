@@ -3,11 +3,15 @@
 <ul>
     <li>Price: $<%= product.price %> </li>
     <li>Category: <a href="/products?category=<%= product.category %>"><%= product.category %> </a></li>
+    <li>Farm: <a href="/farms/<%= product.farm._id %>"><%= product.farm.name %></a></li>
 </ul>
 <a class="btn btn-warning text-white" href="/products/<%= product._id %>/edit">Edit Product</a>
 <form class="d-inline" action="/products/<%= product._id %>?_method=DELETE" method="POST">
     <button class="btn btn-danger" type="submit">Delete</button>
 </form>
 <div class="mt-3">
-    <a href="/products">Back</a>
+    <a href="/products">Back To Products</a>
+</div>
+<div>
+    <a href="/farms/<%= product.farm._id %>">To Farm</a>
 </div>
